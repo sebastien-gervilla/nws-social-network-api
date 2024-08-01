@@ -1,0 +1,18 @@
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      target: builder
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - ${API_PORT}:${API_PORT}
+      
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    volumes:
+      - ./data:/data/db
+    command: mongod --quiet --logpath /dev/null 
