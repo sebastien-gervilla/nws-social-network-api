@@ -10,7 +10,7 @@
     "outDir": "./dist",
 
     "lib": ["esnext"],
-    "types": ["node"],
+    "types": ["node", "multer"],
     "moduleResolution": "node",
     "esModuleInterop": true,
 
