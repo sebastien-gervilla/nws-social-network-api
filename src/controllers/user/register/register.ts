@@ -15,6 +15,9 @@ export const register = Controller.route(async (request, response) => {
     const body: any = await googleResponse.json();
     if (!body?.email) return response.send(401, 'Unauthorized');
 
+    if (!body.email.includes('@normandiewebschool.fr'))
+        return response.send(401, 'Unauthorized');
+
     const user = await models.user.findOne({ email: body.email });
 
     response.setCookie({
